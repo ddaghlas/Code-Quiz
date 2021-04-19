@@ -1,3 +1,4 @@
+var answer = document.querySelector(".answer-button");
 var correct = document.querySelector(".correct-answer");
 var incorrect = document.querySelector(".incorrect-answer");
 var timerEl = document.querySelector(".timer-count");
@@ -10,8 +11,8 @@ var isCorrect = true;
 var timer;
 var timerCount;
 
-var correctAnswerInChosenWord = [""];
-var incorrecrAnswerInChosenWord = [""]; 
+var correctAnswerInChosenAnswer = [""];
+var incorrecrAnswerInChosenAnswer = [""]; 
 
 var correctAnswer1 = ("When a keyword is declared");
 var correctAnswer2 = ("When a user clicks the mouse");
@@ -63,7 +64,6 @@ function startTimer() {
           clearInterval(timer);
           allDone();
         } else if (isIncorrect)
-      }
       // Tests if time has run out
       if (timerCount === 0) {
         // Clears interval
@@ -71,7 +71,7 @@ function startTimer() {
         allDone();
       }
     }, 1000);
-  }
+  };
 
   // Creates blanks on screen
 function renderQuestions() {
