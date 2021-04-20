@@ -17,7 +17,7 @@
 
 - A typical coding assessment includes both multiple-choice questions and interactive coding challenges. 
 
-// Include deployed URL link here //
+// https://ddaghlas.github.io/Code-Quiz///
 
 ## Usage
 Provide instructions and examples for use. Include screenshots as needed.
