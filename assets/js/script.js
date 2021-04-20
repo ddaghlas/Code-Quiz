@@ -4,26 +4,21 @@ var incorrect = document.querySelector(".incorrect-answer");
 var timerEl = document.querySelector(".timer-count");
 var startBtn = document.querySelector(".start-button");
 
-var chosenAnswer = "";
+var chosenQuestion = "";
 var correctCounter = 0;
 var incorrectCounter = 0; 
-var isCorrect = true;
+var isCorrect = false;
 var timer;
 var timerCount;
 
-var correctAnswerInChosenAnswer = [""];
+var choicesInChosenQuestion = [""];
 var incorrecrAnswerInChosenAnswer = [""]; 
 
-var correctAnswer1 = ("When a keyword is declared");
-var correctAnswer2 = ("When a user clicks the mouse");
-var correctAnswer3 = ("A collection of data or variables");
-var correctAnswer4 = ("Boolean")
-var incorrectAnswers = (!isCorrect);
+var correctAnswer = ["When a keyword is declared", "When a user clicks the mouse", "A collection of data or variables", "Boolean"];
 
-var question1 = ["What is a variable?"];
-var question2 = ["Which is a DOM event?"];
-var question3 = ["An array in JavaScript can be used to store"];
-var question4 = ["Commonly used data-types include..."];
+var incorrectAnswer = (!correctAnswer);
+
+var question = ["What is a variable?", "Which is a DOM event?", "An array in JavaScript can be used to store", "Commonly used data-types include..."];
 
 // The init function is called when the page loads 
 function init() {
@@ -33,11 +28,11 @@ function init() {
   }
 
   // The startGame function is called when the start button is clicked
-function startGame() {
+function startQuiz() {
     isCorrect = false;
     timerCount = 115;
     // Prevents start button from being clicked when round is in progress
-    startButton.disabled = true;
+    startBtn.disabled = true;
     renderQuestions()
     startTimer()
   }
@@ -56,14 +51,15 @@ function startTimer() {
     // Sets timer
     timer = setInterval(function() {
       timerCount--; // Look up how to subtract timer by 10 seconds
-      timerElement.textContent = timerCount;
+      timerEl.textContent = timerCount;
       if (timerCount >= 0) {
-        // Tests if win condition is met
+        // Tests if correct condition is met
         if (isCorrect && timerCount > 0) {
           // Clears interval and stops timer
           clearInterval(timer);
           allDone();
-        } else if (isIncorrect)
+        } 
+      }
       // Tests if time has run out
       if (timerCount === 0) {
         // Clears interval
@@ -71,13 +67,13 @@ function startTimer() {
         allDone();
       }
     }, 1000);
-  };
+  }
 
   // Creates blanks on screen
 function renderQuestions() {
-  // Randomly picks word from words array
-  chosenAnswer = questions[Math.floor(Math.random() * questions.length)];
-  lettersInChosenWord = chosenWord.split("");
+  // Randomly picks questions from the questions array
+  chosenQuestion = questions[Math.floor(Math.random() * questions.length)];
+  choicesInChosenQuestion = chosenQuestion.split("");
   numBlanks = lettersInChosenWord.length;
   blanksLetters = []
   // Uses loop to push blanks to blankLetters array
