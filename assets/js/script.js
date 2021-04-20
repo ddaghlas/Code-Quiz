@@ -1,9 +1,11 @@
-var answer = document.querySelector(".answer-button");
+var answers = document.querySelector(".answer-button");
 var correct = document.querySelector(".correct-answer");
 var incorrect = document.querySelector(".incorrect-answer");
 var timerEl = document.querySelector(".timer-count");
 var startBtn = document.querySelector("#start-button");
+var viewHighscore = document.querySelector("#view-highscore");
 
+var questions = [''];
 var chosenQuestion = "";
 var correctCounter = 0;
 var incorrectCounter = 0; 
