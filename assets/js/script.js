@@ -2,7 +2,7 @@ var answer = document.querySelector(".answer-button");
 var correct = document.querySelector(".correct-answer");
 var incorrect = document.querySelector(".incorrect-answer");
 var timerEl = document.querySelector(".timer-count");
-var startBtn = document.querySelector(".start-button");
+var startBtn = document.querySelector("#start-button");
 
 var chosenQuestion = "";
 var correctCounter = 0;
@@ -14,11 +14,53 @@ var timerCount;
 var choicesInChosenQuestion = [""];
 var incorrecrAnswerInChosenAnswer = [""]; 
 
-var correctAnswer = ["When a keyword is declared", "When a user clicks the mouse", "A collection of data or variables", "Boolean"];
+// var correctAnswer = [];
 
 var incorrectAnswer = (!correctAnswer);
 
-var question = ["What is a variable?", "Which is a DOM event?", "An array in JavaScript can be used to store", "Commonly used data-types include..."];
+var questions = [
+  {
+    question: "What is a variable?", 
+    answers: {
+      a: "When a keyword is declared",
+      b: "When a user clicks the mouse",
+      c: "A collection of data or variables",
+      d: "Boolean"
+      },
+      correctAnswer: "a"
+    },
+    {
+      question: "Which is a DOM event?", 
+      answers: {
+        a: "When a keyword is declared",
+        b: "When a user clicks the mouse",
+        c: "A collection of data or variables",
+        d: "Boolean"
+        },
+        correctAnswer: "b"
+    },
+    {
+      question: "An array in JavaScript can be used to store", 
+      answers: {
+        a: "When a keyword is declared",
+        b: "When a user clicks the mouse",
+        c: "A collection of data or variables",
+        d: "Boolean"
+        },
+        correctAnswer: "c"
+    },
+    {
+      question: "Commonly used data-types include...", 
+      answers: {
+        a: "When a keyword is declared",
+        b: "When a user clicks the mouse",
+        c: "A collection of data or variables",
+        d: "Boolean"
+        },
+        correctAnswer: "d"
+    }
+  ];
+
 
 // The init function is called when the page loads 
 function init() {

@@ -3,13 +3,19 @@
   }
   
   body {
-    font-family: Arial;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     margin: 0;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
     justify-content: flex-start;
     background: linear-gradient(0deg, rgba(19,41,61,1) 0%, rgba(237,245,249,1) 63%);
+  }
+
+  p {
+    font-weight: 400;
+    font-size: 24px;
+    margin: 20px 100px;
   }
   
   /* .reset-button {
@@ -30,43 +36,46 @@
     border-radius: 8px;
     color: #13293d;
     cursor: pointer;
-    font-size: 2em;
+    font-weight: 600;
+    font-size: 1.5em;
     letter-spacing: 0.21px;
-    line-height: 16px;
-    max-width: 255px;
-    padding: 20px 52px;
+    line-height: 14px;
+    max-width: 325px;
+    padding: 10px 54px;
     text-align: center;
     transition-duration: 0.15s;
     transition-property: background-color;
     transition-timing-function: linear;
-    margin-top: 0.6em;
+    margin-top: 0.2em;
   }
   
   header {
-    padding: 40px;
+    padding: 10px;
     text-align: center;
-    background: #fff;
+    /* background: #fff; */
     color: #13293d;
+    background: linear-gradient(0deg, rgba(19,41,61,1) 0%, rgba(237,245,249,1) 63%);
     /* border-bottom:30px #879274; */
   }
   
   main {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    /* justify-content: space-around; */
   }
   
   section {
     flex: 0 auto;
-    padding: 8px;
-    margin-top: 50px;
+    /* padding: 8px; */
+    margin-top: 20px;
     background-color: white;
-    border-radius: 8px;
+    border-radius: 4px;
   }
   
-  .code-quiz {
+  #code-quiz {
     width: 55vw;
     height: 400px;
+    line-height: 360px;
   }
   
   .highscore {
@@ -74,7 +83,7 @@
     height: 400px;
   }
   
-  .card {
+  #card {
     background: radial-gradient(circle, rgb(247, 246, 244) 0%, rgba(180, 178, 175, 0.604) 100%);
     border: 1px solid #eceff1;
     border-radius: 8px;
@@ -84,12 +93,9 @@
     padding: 20px;
   }
   
-  .code-quiz {
-    line-height: 360px;
-  }
-  
-  .large-font {
+  #large-font {
     font-size: 3.5em;
+    font-weight: 800;
     text-align:center;
   }
 
@@ -120,7 +126,7 @@
       flex-direction: column;
     }
   
-    .code-quiz,
+    #code-quiz,
     .highscore {
       width: 90vw;
     }
@@ -133,11 +139,11 @@
   }
   
   @media screen and (max-width: 504px) {
-    .large-font {
+    #large-font {
       font-size: 2em;
     }
   
-    .start-button {
+    #start-button {
       font-size: 16px;
       width: 30ox;
       
