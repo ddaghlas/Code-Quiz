@@ -32,6 +32,7 @@
   } */
   
   button {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     background: radial-gradient(circle, rgb(107, 34, 126) 0%, rgba(223, 242, 243, 0.954) 100%);
     border-radius: 8px;
     color: #13293d;
@@ -82,13 +83,16 @@
   #view-highscore {
     /* width: 12vw; */
     /* height: 100px; */
+    text-decoration: underline;
+    border: none;
     font-size: 1.2rem; 
     float: left;
     margin-left: 5px;
     /* border-radius: 4px; */
-    padding: 10px 34px;
+    padding: 10px 44px;
     letter-spacing: 0.31px;
-       /* width: 30vw;
+    border-radius: 8px;
+    /* width: 30vw;
     height: 100px; */
     /* margin-left: 5px; */
   }
