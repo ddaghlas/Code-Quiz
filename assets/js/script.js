@@ -1,17 +1,27 @@
-var answers = document.querySelector(".answer-button");
-var correct = document.querySelector(".correct-answer");
-var incorrect = document.querySelector(".incorrect-answer");
+var introEl = document.querySelector(".intro");
+var rightWrongEl = document.querySelector(".right-wrong");
+var questionsEl = document.querySelector("#questions-container");
+var answerEl = document.querySelector("#answers-container");
+var endEl = document.querySelector(".end");
+var submiteBtn = document.querySelector(".submitBtn");
+var score = document.querySelector(".score");
+var finalPageEl = document.querySelector(".finalPage");
+var highscorePage = document.querySelector("#highscore");
+var playAgain = document.querySelector(".restart");
+var again = document.querySelector(".tryAgain");
+var initials = document.querySelector(".initials");
 var timerEl = document.querySelector(".timer-count");
 var startBtn = document.querySelector("#start-button");
 var viewHighscore = document.querySelector("#view-highscore");
 
+var timeAlotted = 115;
 var questions = [''];
 var chosenQuestion = "";
 var correctCounter = 0;
 var incorrectCounter = 0; 
 var isCorrect = false;
-var timer;
-var timerCount;
+// var timer;
+// var timerCount;
 
 var choicesInChosenQuestion = [""];
 var incorrecrAnswerInChosenAnswer = [""]; 
@@ -19,6 +29,14 @@ var incorrecrAnswerInChosenAnswer = [""];
 // var correctAnswer = [];
 
 var incorrectAnswer = (!correctAnswer);
+
+var timer = function() {
+  time = time - 1;
+  timerEl.textContent = time;
+  if (time < 0) {
+    endQuiz();
+  }
+}
 
 var questions = [
   {
@@ -63,13 +81,20 @@ var questions = [
     }
   ];
 
+  var questionEl = document.querySelector(".main-quiz");
+  var questionsIndex = 0;
+  var time = questions.length * 10;
+
 
 // The init function is called when the page loads 
 function init() {
-    getCorrectAnswers();
-    getIncorrectAnswers();
-    // getlosses();
-  }
+  questionEl.classList.remove("hide")
+  introEl.classList.add("hide")
+  timerEl.classList.remove("hide")
+  timerInterval = setInterval(timer, 1000)
+  timerInterval.textContent = time;
+  launchQuestion()
+}
 
   // The startGame function is called when the start button is clicked
 function startQuiz() {
