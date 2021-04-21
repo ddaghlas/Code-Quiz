@@ -1,30 +1,35 @@
-var introEl = document.querySelector(".intro");
-var rightWrongEl = document.querySelector(".right-wrong");
-var questionsEl = document.querySelector("#questions-container");
-var answerEl = document.querySelector("#answers-container");
-var endEl = document.querySelector(".end");
-var submiteBtn = document.querySelector(".submitBtn");
-var score = document.querySelector(".score");
-var finalPageEl = document.querySelector(".finalPage");
-var highscorePage = document.querySelector("#highscore");
-var playAgain = document.querySelector(".restart");
-var again = document.querySelector(".tryAgain");
+var introEl = document.querySelector(".intro"); // L13 <div></div>
+var viewHighscoreBtn = document.querySelector("#view-highscore"); // L14 <button></button>
+var timerEl = document.querySelector(".timer-count"); // L15 <div></div>
+var startBtn = document.querySelector("#start-button"); // L21 <button></button>
+var questionsEl = document.querySelector("#questions-container"); // L24 <div></div>
+var answerEl = document.querySelector("#answers-container"); // L25 <div></div>
+var chosenAnswerBtn = document.querySelector(".chosen-answer"); // L27 <button></button>
+var rightWrongEl = document.querySelector("#right-wrong"); // L27 <div></div>
+var displayCorrectAnswer = document.querySelector(".correct-answer"); // L27 <div></div>
+var endEl = document.querySelector(".end"); // L30 <div></div>
+var submitBtn = document.querySelector(".submitBtn");
+var score = document.querySelector("#score"); // L39 <h2></h2>
 var initials = document.querySelector(".initials");
-var timerEl = document.querySelector(".timer-count");
-var startBtn = document.querySelector("#start-button");
-var viewHighscore = document.querySelector("#view-highscore");
+var finalPageEl = document.querySelector(".finalPage");
+// var highscorePage = document.querySelector("#highscore");
+var playAgain = document.querySelector("#play-again");
+// var again = document.querySelector(".tryAgain");
+
+
+
 
 var timeAlotted = 115;
-var questions = [''];
+// var questions = [''];
 var chosenQuestion = "";
-var correctCounter = 0;
-var incorrectCounter = 0; 
-var isCorrect = false;
+var correctAnswerCounter = 0;
+var incorrectAnswerCounter = 0; 
+// var correctAnswer = false;
 // var timer;
 // var timerCount;
 
-var choicesInChosenQuestion = [""];
-var incorrecrAnswerInChosenAnswer = [""]; 
+var choicesAnswersEl = " ";
+// var incorrecrAnswerInChosenAnswer = [""]; 
 
 // var correctAnswer = [];
 
@@ -81,7 +86,7 @@ var questions = [
     }
   ];
 
-  var questionEl = document.querySelector(".main-quiz");
+  var questionEl = document.querySelector(".code-quiz");
   var questionsIndex = 0;
   var time = questions.length * 10;
 

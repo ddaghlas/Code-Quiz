@@ -66,6 +66,26 @@
     background: linear-gradient(0deg, rgba(19,41,61,1) 0%, rgba(237,245,249,1) 63%);
     /* border-bottom:30px #879274; */
   }
+
+  .code-quiz {
+    display: inline-block;
+    flex-wrap: wrap;
+  }
+
+  #questions-container {
+    display: inline-block;
+  }
+
+  #answers-container {
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: 10px 20px;
+  }
+
+  #questions {
+    display: none;
+  }
   
   /* main {
     display: flex;
