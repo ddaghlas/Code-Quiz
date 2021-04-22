@@ -10,52 +10,54 @@
 </head>
 <body>
   <header>
-    <div class="intro">
+    <!-- <div class="intro"> -->
     <button id="view-highscore">View Highscore</button>
     <div id="timer-count">Timer: 115</div>
     </div>
-    <div class="large-font">Coding Quiz Challenge</div>
+  </header>
+
+  <section class="intro">
+    <h1 class="large-font">Coding Quiz Challenge</h1>
     <p>
       Try to answer the following code questions within the time limit. Keep in mind that incorrect answers will penalize your score time by 10 seconds!
     </p>
     <button id="start-button">Start Quiz!</button>
+  </section>
     
-    <section class="code-quiz hide">
-      <h2 id="questions-container"></h2>
-    </section>
-      <!-- <div id="answers-container"></div> -->
-      <div><button class="chosen-answer" id="answers-container"></button></div>
-    <section id="right-wrong"><h3 class="correct-answer"></h3>
-    </section>
-    </section>
+  <section class="code-quiz hide">
+    <h2 id="questions-container"></h2>
+  </section>
+    <!-- <div id="answers-container"></div> -->
+    <div><button class="chosen-answer" id="answers-container"></button></div>
+  <section id="right-wrong"><h3 class="correct-answer"></h3>
+  </section>
   
-    <div class="end hide" id="scoreLog">
-      <h2>Well done! Enter your initials to view your score.</h2>
-        <div class="enterInitials">
-          <input type="text" placeholder="Your Initials" name="initials" id="initials">
-        <button class="submitBtn">Submit</button>
-      </div>
-    </div> 
-  
-    <div class="score hide" id="score">Final Score: </div>
-      <!-- <div class="highScore">
-      <h3 id="highScore"> </h3>
-      </div> -->
-     <!-- <div class="choices"> -->
-        <!-- <button id="save" class="save">Save</button> -->
-        <!-- <button id="tryAgain" class="tryAgain">Try Again</button> -->
-     <!-- </div> -->
-  
-    <div class="finalPage hide" id="final">
-      <div class="userBest">
-        <h3 id="userBest">Your Scores</h3>
-      </div>
-      <div>
-        <ul id="finalLog" class="finalLog"></ul>
-      </div>
-      <button id="play-again">Play Again!</button>
+  <div class="end hide" id="scoreLog">
+    <h2>Well done! Enter your initials to view your score.</h2>
+      <div class="enterInitials">
+        <input type="text" placeholder="Your Initials" name="initials" id="initials">
+      <button id="submitBtn">Submit</button>
     </div>
-  </header>
+  </div> 
+  
+  <div class="score hide" id="score">Final Score: </div>
+    <!-- <div class="highScore">
+    <h3 id="highScore"> </h3>
+    </div> -->
+    <!-- <div class="choices"> -->
+      <!-- <button id="save" class="save">Save</button> -->
+      <!-- <button id="tryAgain" class="tryAgain">Try Again</button> -->
+    <!-- </div> -->
+
+  <div class="finalPage hide" id="final">
+    <div class="userBest">
+      <h3 id="userBest">Your Scores</h3>
+    </div>
+    <div>
+      <ul id="finalLog" class="finalLog"></ul>
+    </div>
+    <button id="play-again">Play Again!</button>
+  </div>
 
   <script src=".assets/js/script.js"></script>
 </body>
