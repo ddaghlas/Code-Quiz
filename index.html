@@ -1,104 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Code Assessment Quiz</title>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" type="text/css" href="./assets/css/reset.css" />
-  <link rel="stylesheet" type="text/css" href="./assets/css/style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Code-Quiz</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="./assets/css/style.css">
+   
 </head>
 <body>
-  <header>
-    <!-- <div class="intro"> -->
-    <button id="view-highscore">View Highscore</button>
-    <div id="timer-count">Timer: 115</div>
-    </div>
-  </header>
-
-  <section class="intro">
-    <h1 class="large-font">Coding Quiz Challenge</h1>
-    <p>
-      Try to answer the following code questions within the time limit. Keep in mind that incorrect answers will penalize your score time by 10 seconds!
-    </p>
-    <button id="start-button">Start Quiz!</button>
-  </section>
     
-  <section class="code-quiz hide">
-    <h2 id="questions-container"></h2>
-  </section>
-    <!-- <div id="answers-container"></div> -->
-    <div><button class="chosen-answer" id="answers-container"></button></div>
-  <section id="right-wrong"><h3 class="correct-answer"></h3>
-  </section>
-  
-  <div class="end hide" id="scoreLog">
-    <h2>Well done! Enter your initials to view your score.</h2>
-      <div class="enterInitials">
-        <input type="text" placeholder="Your Initials" name="initials" id="initials">
-      <button id="submitBtn">Submit</button>
-    </div>
-  </div> 
-  
-  <div class="score hide" id="score">Final Score: </div>
-    <!-- <div class="highScore">
-    <h3 id="highScore"> </h3>
-    </div> -->
-    <!-- <div class="choices"> -->
-      <!-- <button id="save" class="save">Save</button> -->
-      <!-- <button id="tryAgain" class="tryAgain">Try Again</button> -->
-    <!-- </div> -->
+    <div class="container d-flex justify-content-center mt-5">
+        
+    <div class="game-box col-lg-8 p-4">
+        <div class="row pb-4">
+            <div class="col-lg-4">
+                <h2 class="code-title">Code-Quiz</h2>
+            </div>
+            <hr>
+            <div class="col-lg-4"></div>
 
-  <div class="finalPage hide" id="final">
-    <div class="userBest">
-      <h3 id="userBest">Your Scores</h3>
-    </div>
-    <div>
-      <ul id="finalLog" class="finalLog"></ul>
-    </div>
-    <button id="play-again">Play Again!</button>
-  </div>
+            <div class="col-lg-4">
+                <h4 class="float-right text-primary d-none" id="timecounter">Timer :<span id="timer">75</span></h4>
 
-  <script src=".assets/js/script.js"></script>
-</body>
+            </div>
+          </div>
+          <div class="quiz-questions d-none" id="quiz-questions">
+              <h2 class="text-info  text-center" id="title-item">Lorem ipsum dolor sit amet consectetur adipisicing.</h2>
+              <div class="answers mt-5 mb-5" id="question-answers">
+              </div>
+              <h1 id="alert"></h1>
+              
+          </div>
+          <div class="btnstart d-flex  flex-column justify-content-center mt-8 mb-10" > 
+              <p id="info">Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your score time by 10 seconds.
+              </p>
+              <button class="btn btn-primary btn-lg" id="btn-start">Start Quiz</button>
+              
+          </div>
+            
+            <div class=" input-group mb-3 d-none" id="addscore">
+                <h5 class="d-block"><span id="score"></span></h5>
+                    <input type="text" class="form-control" placeholder="Enter your initials:"
+                    id="inputScore" aria-describedby="basic-addon2">
+                    <div class="input-group-append">
+                        <button class="input-group-text btn btn-primary" id="btnScore">Submit</button>
+
+                    </div>
+            </div>
+        </div>
+    </div>
+    <script src="./assets/js/script.js"></script>
+    </body>
+
+
 </html>
-
-  <!-- <section class="code-quiz">
-    <div id="questions-container"></div>
-    <div id="answers-container"></div>
-    <div class="right-wrong" id="answer-response"></div>
-    <button class="chosen-answer" id="answers-container"></button>
-  </section>
-
-  <section class="end hide" id="scoreLog">
-    <h1>Well done! Enter your initials to view your score.</h1>
-      <div class="enterInitials">
-        <input type="text" placeholder="Your Initials" name="initials" id="initials">
-    </div>
-    <button class="submitBtn">View Score</button>
-  </section> 
-
-  <section class="score hide">  
-    <h2 id="score">Final Score:</h2>
-    </div>
-    <div class="highScore">
-    <h3 id="highScore"> </h3>
-    </div>
-   <div class="choices">
-      <button id="save" class="save">Save</button>
-      <button id="tryAgain" class="tryAgain">Try Again</button>
-  </section>
-
-  <section class="finalPage hide" id="final">
-    <div class="yourBest">
-      <h2 id="yourBest">Your Scores</h2>
-    </div>
-    <div>
-      <ul id="finalLog" class="finalLog"></ul>
-    </div>
-    <button id="restart" class="restart">Play Again!</button>
-  </section> -->
-
-  <!-- <script src=".assets/js/script.js"></script>
-</body>
-</html> -->

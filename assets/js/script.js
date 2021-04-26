@@ -1,171 +1,148 @@
-var introEl = document.querySelector(".intro"); // L13 <div></div>
-var viewHighscoreBtn = document.querySelector("#view-highscore"); // L14 <button></button>
-var timerEl = document.querySelector(".timer-count"); // L15 <div></div>
-var startBtn = document.querySelector("#start-button"); // L21 <button></button>
-var questionsEl = document.querySelector("#questions-container"); // L24 <div></div>
-var answerEl = document.querySelector("#answers-container"); // L25 <div></div>
-var chosenAnswerBtn = document.querySelector(".chosen-answer"); // L27 <button></button>
-var rightWrongEl = document.querySelector("#right-wrong"); // L27 <div></div>
-var displayCorrectAnswer = document.querySelector(".correct-answer"); // L27 <div></div>
-var endEl = document.querySelector(".end"); // L30 <div></div>
-var submitBtn = document.querySelector("#submitBtn");
-var score = document.querySelector("#score"); // L39 <h2></h2>
-var initials = document.querySelector(".initials");
-var finalPageEl = document.querySelector(".finalPage");
-// var highscorePage = document.querySelector("#highscore");
-var playAgain = document.querySelector("#play-again");
-// var again = document.querySelector(".tryAgain");
+var quizQuestions = document.getElementById("quiz-questions");
+var timer = document.getElementById("timer");
+var btnStart = document.getElementById("btn-start");
+var timecounter = document.getElementById("timecounter");
+var titleitem = document.getElementById("title-item");
+var nextQuestions 
+var questionanswers = document.getElementById("question-answers");
+var myScore = document.getElementById("score");
+var btnScore = document.getElementById("btnScore");
+var currentindex = 0;
+var score = 0;
+var count = 115;
+var alert =document.getElementById("alert");
+var info = document.getElementById("info");
 
-
-
-
-var timeAlotted = 115;
-// var questions = [''];
-var chosenQuestion = "";
-var correctAnswerCounter = 0;
-var incorrectAnswerCounter = 0; 
-// var correctAnswer = false;
-// var timer;
-// var timerCount;
-
-var choicesAnswersEl = " ";
-// var incorrecrAnswerInChosenAnswer = [""]; 
-
-// var correctAnswer = [];
-
-var incorrectAnswer = (!correctAnswer);
-
-var timer = function() {
-  time = time - 1;
-  timerEl.textContent = time;
-  if (time < 0) {
-    endQuiz();
-  }
-}
-
+var allScores = [];
+var storedScores = JSON.parse(localStorage.getItem("userData"));
 var questions = [
-  {
-    question: "What is a variable?", 
-    answers: {
-      a: "When a keyword is declared",
-      b: "When a user clicks the mouse",
-      c: "A collection of data or variables",
-      d: "Boolean"
-      },
-      correctAnswer: "a"
+    {
+        title: "Commonly used data type Do Not include:---",
+        choices: ["strings","booleance","alerts", "numbers"],
+        answer : "alerts"    
     },
     {
-      question: "Which is a DOM event?", 
-      answers: {
-        a: "When a keyword is declared",
-        b: "When a user clicks the mouse",
-        c: "A collection of data or variables",
-        d: "Boolean"
-        },
-        correctAnswer: "b"
+        title: "The condition in an if/else statement is enclosed within:---",
+        choices: ["quotes","Curly brackets","parentheses", "square brackets"],
+        answer : "parentheses"    
     },
     {
-      question: "An array in JavaScript can be used to store", 
-      answers: {
-        a: "When a keyword is declared",
-        b: "When a user clicks the mouse",
-        c: "A collection of data or variables",
-        d: "Boolean"
-        },
-        correctAnswer: "c"
+        title: "Arrays in JavaScript can be used to store:---",
+        choices: ["numbers and strings","others Arrays","booleances", "all of the above"],
+        answer : "all of the above"    
     },
     {
-      question: "Commonly used data-types include...", 
-      answers: {
-        a: "When a keyword is declared",
-        b: "When a user clicks the mouse",
-        c: "A collection of data or variables",
-        d: "Boolean"
-        },
-        correctAnswer: "d"
+        title: "String values must be enclosed within --- when being assigned to variables ",
+        choices: ["commas","curly brackets","quotes","parentheses"],
+        answer : "quotes"    
+    },
+    {
+        title: "A very useful tool used during development and debugging for printing content to the debugger is:---",
+        choices: ["JavaScript","terminal/bash","alerts", "console.log"],
+        answer : "console.log"    
+    },
+]
+btnStart.addEventListener("click", starQuiz);
+function starQuiz(){
+    if(storedScores !==null) {
+        allScores = storedScores;
     }
-  ];
+    info.classList.add("d-none")
+    btnStart.classList.add("d-none")
+    timecounter.classList.remove("d-none")
+    quizQuestions.classList.remove("d-none")
+    nextQuestions= questions[currentindex]
+    console.log(nextQuestions.title)
+    
+        displayQuestion(nextQuestions)
 
-  var questionEl = document.querySelector(".code-quiz");
-  var questionsIndex = 0;
-  var time = questions.length * 10;
+    gametime()
+}
+btnScore.addEventListener("click" , function(){
+    let name = document.getElementById("inputScore").value
+    scorePage(name, count)
+});
+// Time set
 
+function gametime(){
 
-// The init function is called when the page loads 
-function init() {
-  questionEl.classList.remove("hide")
-  introEl.classList.add("hide")
-  timerEl.classList.remove("hide")
-  timerInterval = setInterval(timer, 1000)
-  timerInterval.textContent = time;
-  launchQuestion()
+    var timeinterval = setInterval(function(){
+        timer.innerText = count
+         count--;
+        }, 1000);
+
 }
 
-  // The startGame function is called when the start button is clicked
-function startQuiz() {
-    isCorrect = false;
-    timerCount = 115;
-    // Prevents start button from being clicked when round is in progress
-    startBtn.disabled = true;
-    renderQuestions()
-    startTimer()
-  }
+function scorePage(a, b) {
 
-  function allDone() {
-    // wordBlank.textContent = "YOU WON!!!🏆 ";
-    // winCounter++
-    // startButton.disabled = false;
-    // setWins()
-  }
+    var userData = {
+        inits: a,
+        userScore: b
+    };
+    allScores.push(userData);
 
-  // Create a function for the form to input user initials
-
-  // The setTimer function starts and stops the timer and triggers winGame() and loseGame()
-function startTimer() {
-    // Sets timer
-    timer = setInterval(function() {
-      timerCount--; // Look up how to subtract timer by 10 seconds
-      timerEl.textContent = timerCount;
-      if (timerCount >= 0) {
-        // Tests if correct condition is met
-        if (isCorrect && timerCount > 0) {
-          // Clears interval and stops timer
-          clearInterval(timer);
-          allDone();
-        } 
-      }
-      // Tests if time has run out
-      if (timerCount === 0) {
-        // Clears interval
-        clearInterval(timer);
-        allDone();
-      }
-    }, 1000);
-  }
-
-  // Creates blanks on screen
-function renderQuestions() {
-  // Randomly picks questions from the questions array
-  chosenQuestion = questions[Math.floor(Math.random() * questions.length)];
-  choicesInChosenQuestion = chosenQuestion.split("");
-  numBlanks = lettersInChosenWord.length;
-  blanksLetters = []
-  // Uses loop to push blanks to blankLetters array
-  for (var i = 0; i < numBlanks; i++) {
-    blanksLetters.push("_");
-  }
-  // Converts blankLetters array into a string and renders it on the screen
-  wordBlank.textContent = blanksLetters.join(" ")
+    localStorage.setItem("userData", JSON.stringify(allScores));
+    location.href = "score.html";
 }
 
-// Updates win count on screen and sets win count to client storage
-function setWins() {
-  win.textContent = winCounter;
-  localStorage.setItem("winCount", winCounter);
+function displayQuestion(question){
+    titleitem.innerText=question.title
+    question.choices.forEach(element => {
+     var button =document.createElement("button")
+    button.className="btn-primary btn-block text-left"
+    button.innerText=element
+    questionanswers.appendChild(button)
+    button.addEventListener("click", displaynextQuestion)
+    });
 }
 
-// Updates lose count on screen and sets lose count to client storage
-function setLosses() {
-  lose.textContent = loseCounter;
-  localStorage.setItem("loseCount", loseCounter);
+
+function displaynextQuestion(e){
+    currentindex++
+    if(currentindex < questions.length){
+        correction(e.target.innerText == nextQuestions.answer)
+        questionanswers.innerHTML=""
+        if(currentindex < questions.length){    
+            nextQuestions= questions[currentindex]
+            displayQuestion(nextQuestions)  
+        }else {
+            currentindex = 0
+            displayQuestion(nextQuestions)  
+        }
+
+    }else{
+        console.log("endgame")
+        endgame()
+        
+
+    }
+    
+     
 }
+function correction(response){
+    
+    if(response){
+        alert.innerText= "Good"
+        console.log("Good")
+    }else {
+        alert.innerText="Wrong"
+        count = count -10
+        timer.innerHTML = count
+        console.log("Wrong")
+
+    }
+    setTimeout(function(){
+        alert.innerText=""
+    
+        }, 1000);
+
+}
+ function endgame (){
+    myScore.innaText = count
+    addscore.classList.remove("d-none")
+    timecounter.classList.add("d-none")
+    quizQuestions.classList.add("d-none")
+    addscore.classList.remove("d-none")
+
+
+ }
