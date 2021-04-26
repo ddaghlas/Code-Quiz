@@ -46,11 +46,6 @@
     letter-spacing: 0.31px;
   }
 
-/* #code-title {
-  text-align: center;
-  font-weight: bold;
-} */
-
  #start-button {
   background: radial-gradient(circle, rgb(107, 34, 126) 0%, rgba(223, 242, 243, 0.954) 100%);
   border-radius: 8px;
